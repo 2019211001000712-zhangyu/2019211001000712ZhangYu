@@ -13,8 +13,8 @@
 <body>
 <a href="index.jsp">go to ecjtu</a>
 <form method="post">
-    Name :<input type="text" name="usename"><br/>
-    ID :<input type="text" name="password"><br/>
+    Name :<input type="text" name="name"><br/>
+    ID :<input type="text" name="id"><br/>
     <input type="submit" value="Send data to server"/>
 </form>
 
