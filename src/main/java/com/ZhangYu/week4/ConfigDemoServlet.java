@@ -6,8 +6,6 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-
-
 @WebServlet(
         urlPatterns = {"/config"},
         initParams = {

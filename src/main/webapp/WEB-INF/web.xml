@@ -7,8 +7,7 @@
         <servlet-name>First</servlet-name>
         <servlet-class>com.ZhangYu.week2.HelloWolrdServlet</servlet-class>
     </servlet>
-    <servlet>
-
+   <servlet>
         <servlet-name>LifeCycleServlet</servlet-name>
         <servlet-class>com.ZhangYu.week3.LifeCycleServlet</servlet-class>
     </servlet>

@@ -27,7 +27,6 @@ public class JDBCDemoServlet extends HttpServlet {
         //String username="sa";
         //String password="123456";
 
-
         ServletConfig config=getServletConfig();
         String driver=config.getInitParameter("driver");
         String url=config.getInitParameter("url");

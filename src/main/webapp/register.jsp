@@ -1,9 +1,7 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
+
+
+<%@include file="/header.jsp"%>
+This is my register JSP page.<br>
 <h1>New User Registration</h1>
 <form method="post" action="Register">
     <table>
@@ -18,4 +16,4 @@
         <input type="submit" value="Register"/>
     </table>
 </form>
-</body>
+<%@include file="/footer.jsp"%>
