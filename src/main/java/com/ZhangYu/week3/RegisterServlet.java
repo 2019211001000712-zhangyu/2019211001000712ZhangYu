@@ -17,7 +17,8 @@ public class RegisterServlet extends HttpServlet {
     Connection con=null;
     @Override
     public void init() throws ServletException {
-        String driver=getServletConfig().getServletContext().getInitParameter("driver");
+        super.init();
+        /*String driver=getServletConfig().getServletContext().getInitParameter("driver");
         String url=getServletConfig().getServletContext().getInitParameter("url");
         String username=getServletConfig().getServletContext().getInitParameter("username");
         String password=getServletConfig().getServletContext().getInitParameter("password");
@@ -27,13 +28,15 @@ public class RegisterServlet extends HttpServlet {
             System.out.println("init()-->"+con);
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
-        }
+        }*/
+        con=(Connection) getServletContext().getAttribute("con");
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        doPost(request,response);
     }
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String ID=request.getParameter("ID");
@@ -43,14 +46,12 @@ public class RegisterServlet extends HttpServlet {
         String Gender=request.getParameter("Gender");
         String Date=request.getParameter("Date");
 
-        PrintWriter writer= response.getWriter();
         /*PrintWriter writer= response.getWriter();
         writer.println("<br>Username :"+Username);
         writer.println("<br>password :"+password);
         writer.println("<br>Email :"+Email);
         writer.println("<br>Gender :"+Gender);
         writer.println("<br>Date :"+Date);
-        writer.close();
         writer.close();*/
         String sql1="insert into Usertable values(?,?,?,?,?,?)";
         PreparedStatement pstmt= null;
@@ -63,22 +64,23 @@ public class RegisterServlet extends HttpServlet {
             pstmt.setString(5,Gender);
             pstmt.setString(6,Date);
             pstmt.executeUpdate();
+            response.sendRedirect("Login.jsp");
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        response.setContentType("text/html");
+        /*response.setContentType("text/html");
         PrintWriter out=response.getWriter();
         out.println("<html>");
         out.println("<head><title>Register</title></head>");
         out.println("<body>");
-        out.println("<table>");
+        out.println("<table border=1>");
         out.println("<tr><td>ID</td><td>username</td><td>password</td><td>Email</td><td>Gender</td><td>Birthdate</td></tr>");
         String sql2="select * from Usertable";
         ResultSet rs= null;
         try {
             rs = con.createStatement().executeQuery(sql2);
-            while(rs.next()){
-                String id=rs.getString("id");
+            /*while(rs.next()){
+                int id=rs.getInt("id");
                 String username=rs.getString("username");
                 String password1=rs.getString("password");
                 String email=rs.getString("email");
@@ -87,12 +89,15 @@ public class RegisterServlet extends HttpServlet {
                 SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
                 out.println("<tr><td>"+id+"</td><td>"+username+"</td><td>"+password1+"</td><td>"+email+"</td><td>"+gender+"</td><td>"+sdf.format(birthdate)+"</td></tr>");
             }
+            request.setAttribute("rsname",rs);
+            request.getRequestDispatcher("userList.jsp").forward(request,response);
+            System.out.println("i am in RegisterServlet-->doPost()-->after forward()");
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        out.println("</table>");
+        /*out.println("</table>");
         out.println("</body>");
-        out.println("</html>");
+        out.println("</html>");*/
     }
 
     @Override
