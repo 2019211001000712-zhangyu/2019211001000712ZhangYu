@@ -9,8 +9,17 @@ import java.io.PrintWriter;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 
+import javax.servlet.*;
+import javax.servlet.annotation.WebInitParam;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.*;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.*;
+import java.text.SimpleDateFormat;
+
 @WebServlet(
-        urlPatterns = {"/Register"}
+        urlPatterns = {"/register"}
 )
 
 public class RegisterServlet extends HttpServlet {
@@ -34,7 +43,7 @@ public class RegisterServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doPost(request,response);
+        request.getRequestDispatcher("WEB-INF/views/register.jsp").forward(request,response);
     }
 
     @Override
@@ -64,7 +73,7 @@ public class RegisterServlet extends HttpServlet {
             pstmt.setString(5,Gender);
             pstmt.setString(6,Date);
             pstmt.executeUpdate();
-            response.sendRedirect("Login.jsp");
+            response.sendRedirect("login");
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
