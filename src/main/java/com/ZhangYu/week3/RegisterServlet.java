@@ -48,7 +48,6 @@ public class RegisterServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String ID=request.getParameter("ID");
         String Username=request.getParameter("Username");
         String password=request.getParameter("password");
         String Email=request.getParameter("Email");
@@ -62,16 +61,15 @@ public class RegisterServlet extends HttpServlet {
         writer.println("<br>Gender :"+Gender);
         writer.println("<br>Date :"+Date);
         writer.close();*/
-        String sql1="insert into Usertable values(?,?,?,?,?,?)";
+        String sql1="insert into Usertable values(?,?,?,?,?)";
         PreparedStatement pstmt= null;
         try {
             pstmt = con.prepareStatement(sql1);
-            pstmt.setString(1,ID);
-            pstmt.setString(2,Username);
-            pstmt.setString(3,password);
-            pstmt.setString(4,Email);
-            pstmt.setString(5,Gender);
-            pstmt.setString(6,Date);
+            pstmt.setString(1,Username);
+            pstmt.setString(2,password);
+            pstmt.setString(3,Email);
+            pstmt.setString(4,Gender);
+            pstmt.setString(5,Date);
             pstmt.executeUpdate();
             response.sendRedirect("login");
         } catch (SQLException throwables) {

@@ -51,7 +51,6 @@
                         out.println("<h3>"+request.getAttribute("message")+"</h3>");
                     }%>
                     <form method="post" action="/2019211001000712ZhangYu_war_exploded/register">
-                        <input type="text" name="ID" placeholder="ID" />
                         <input type="text" name="Username" placeholder="Username" />  <input type="password" name="password" placeholder="password" />   <input type="email" name="Email" placeholder="Email">
                         <label> Gender </label><span> &nbsp;<input type="radio"
                                                                    style="width: 15px; height: 15px; display:inline;" name="Gender" value="Male" checked/>&nbsp;Male&nbsp;<input type="radio" style="width: 15px; height: 15px;   display: inline;" name="Gender" value="Female"/>&nbsp;Female</span>

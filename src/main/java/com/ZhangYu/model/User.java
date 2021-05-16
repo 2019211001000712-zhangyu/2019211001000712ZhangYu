@@ -3,7 +3,7 @@ package com.ZhangYu.model;
 import java.util.Date;
 
 public class User {
-    private String id;
+    private int id;
     private String username;
     private String password;
     private String email;
@@ -14,7 +14,7 @@ public class User {
 
     }
 
-    public User(String id, String username, String password, String email, String gender, Date birthdate) {
+    public User(int id, String username, String password, String email, String gender, Date birthdate) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -23,11 +23,11 @@ public class User {
         this.birthdate = birthdate;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -74,8 +74,8 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "id='" + id + '\'' +
-                ", usernamne='" + username + '\'' +
+                "id=" + id +
+                ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", gender='" + gender + '\'' +
