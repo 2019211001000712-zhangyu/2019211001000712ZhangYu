@@ -59,4 +59,3 @@
 	</div>
 </div>
 <%@include file="../footer.jsp"%>
-© 2021 GitHub, Inc.
