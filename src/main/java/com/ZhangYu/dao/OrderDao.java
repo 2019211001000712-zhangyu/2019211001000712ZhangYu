@@ -116,7 +116,7 @@ public class OrderDao implements IOrderDao {
 			String queryString = "select * from [dbo].[order] as model where model."+ propertyName + "= ?";//use userdb.Order for mysql
 			PreparedStatement st = con.prepareStatement(queryString);
 			st.setObject(1, value);
-			ResultSet	rs = st.executeQuery();
+			ResultSet rs = st.executeQuery();
 			while(rs.next()){
 				Order o=new Order();
 				o.setOrderId(rs.getInt("OrderId"));

@@ -7,9 +7,9 @@ public class Item {
 
     }
 
-    public Item(Product product, int qunatity) {
+    public Item(Product product, int quantity) {
         this.product = product;
-        this.quantity = qunatity;
+        this.quantity = quantity;
     }
 
     public Product getProduct() {
@@ -32,7 +32,7 @@ public class Item {
     public String toString() {
         return "Item{" +
                 "product=" + product +
-                ", qunatity=" + quantity +
+                ", quantity=" + quantity +
                 '}';
     }
 }
